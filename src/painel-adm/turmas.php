@@ -9,7 +9,9 @@ if(@$_SESSION['id_usuario'] == null || @$_SESSION['nivel_usuario'] != 'Admin'){
 
 }
 
+
 ?>
+
 <div class="row mt-4 mb-4">
         <a href="index.php?pag=<?php echo $pag ?>&funcao=novo"class="button-link">
                     <button type="button" class="btn btn-primary m-1" style="padding: 0.2rem 0.5rem;">

@@ -2,16 +2,13 @@
     @session_start();
     require_once("../conexao.php"); 
 
-    //variaveis para o menu
-    $pag = @$_GET["pag"];
-    $menu1 = "secretarios";
-    $menu2 = "professores";
-    $menu3 = "tesoureiros";
-    $menu4 = "funcionarios";
-    $menu5 = "disciplinas";
-    $menu6 = "salas";
-    $menu7 = "turmas";
-
+     //variaveis para o menu
+     $pag = @$_GET["pag"];
+     $menu1 = "frequencia";
+     $menu2 = "historico";
+     $menu3 = "turmas";
+     $menu4 = "notas";
+     $menu5 = "";
     //RECUPERAR DADOS DO USUÁRIO
     $query = $pdo->query("SELECT * FROM usuarios where id = '$_SESSION[id_usuario]'");
     $res = $query->fetchAll(PDO::FETCH_ASSOC);
@@ -29,14 +26,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">  
-      <title>Painel Administrativo</title>
-     <link rel="shortcut icon" type="image/png" href="../assets/images/logos/icon.png" />
-     <link rel="stylesheet" href="../assets/css/styles.min.css" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
-     <link href="../assets/libs/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+  <title>Painel Administrativo</title>
+  <link rel="shortcut icon" type="image/png" href="../assets/images/logos/icon.png" />
+   <link rel="stylesheet" href="../assets/css/styles.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">  
+   <link href="../assets/libs/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
-     <script src="../assets/libs/jquery/src/jquery.min.js"></script>
-    <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>        
+   <script src="../assets/libs/jquery/src/jquery.min.js"></script>
+   <script src="../assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>        
     
 
  
@@ -80,59 +77,36 @@
             <li class="sidebar-item">
               <a class="sidebar-link" href="index.php?pag=<?php echo $menu1 ?>">
                 <span>
-                <i class="fas fa-user-tie"></i>
+                <i class="fas fa-chart-line"></i>
+
                 </span>
-                <span class="hide-menu">Secretários</span>
+                <span class="hide-menu">Frequência</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="index.php?pag=<?php echo $menu2 ?>">
                 <span> 
-                <i class="fas fa-chalkboard-teacher"></i> 
+                <i class="fas fa-clipboard-list"></i>  
                 </span>
-                <span class="hide-menu">Professores</span>
+                <span class="hide-menu">Histórico Escolar</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="index.php?pag=<?php echo $menu3 ?>">
                 <span>
-                <i class="fas fa-coins"></i> 
+                <i class="fas fa-chalkboard-teacher"></i>
                 </span>
-                <span class="hide-menu">Financeiro</span>
+                <span class="hide-menu">Minha Turma</span>
               </a>
             </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="index.php?pag=<?php echo $menu4 ?>">
                 <span>
-                <i class="fas fa-users"></i>
+                <i class="fas fa-clipboard-check"></i>
                 </span>
-                <span class="hide-menu">Funcionário</span>
+                <span class="hide-menu">Notas</span>
               </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="index.php?pag=<?php echo $menu5 ?>">
-                <span>
-                <i class="fas fa-book"></i> 
-                </span>
-                <span class="hide-menu">Disciplinas</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="index.php?pag=<?php echo $menu6 ?>">
-                <span>
-                <i class="fas fa-chalkboard"></i> 
-                </span>
-                <span class="hide-menu">Salas</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="index.php?pag=<?php echo $menu7 ?>">
-                <span>
-                <i class="fas fa-book"></i>
-                </span>
-                <span class="hide-menu">Turmas</span>
-              </a>
-            </li>
+            </li>            
             <li class="nav-small-cap">
               <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
               <span class="hide-menu">AUTH</span>
